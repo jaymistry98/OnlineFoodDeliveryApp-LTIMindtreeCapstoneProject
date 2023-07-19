@@ -1,0 +1,87 @@
+<div class="container">
+
+    <!--Title for page-->
+    <div class="p-2 text-center bg-light fa-3x">
+      <i class="fas fa-user-plus"></i>
+      <h1 class="mb-1">Register</h1>
+    </div>
+
+    <!--Register Form-->
+    
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
+        <div class="form-group">
+            <label for="userName">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Username"
+              formControlName="userName"
+            />
+
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter Email"
+              formControlName="email"
+            />
+
+            <!--Error for email input-->
+            <div *ngIf="registerForm.controls['email'].invalid">
+                <p align="right">Please enter a valid email</p>
+            </div>
+
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Enter Password"
+              formControlName="password"
+            />
+
+            <!--Error for password input-->
+            <div *ngIf="registerForm.controls['password'].invalid">
+              <p align="right">Password must be length of 6 or more</p>
+            </div>
+
+            <label for="securityQuestion">Security Question</label>
+            <select class="form-control" formControlName="securityQuestion">
+              <option>Where was your mother born?</option>
+              <option>What was your first car?</option>
+              <option>What was the first name of your first pet?</option>
+              <option>What was your school name?</option>
+              <option>Where were you born?</option>
+              <option>What model your first smartphone was?</option>
+            </select>
+
+            <label for="answer">Answer</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Answer"
+              formControlName="answer"
+            />
+
+            <label for="type">Type</label>
+            <select class="form-control" name="userType" formControlName="type">
+              <option>User</option>
+              <option>Admin</option>
+              <option>Vendor</option>
+            </select>
+
+            <br>
+
+            <!--Allow resgister if all fields valid-->
+            <button class="btn btn-primary btn-lg d-flex justify-content-center" [disabled]="!registerForm.valid">
+                Register
+            </button>
+            <button [routerLink]="['/login']" style="margin-top: 10px"class="btn btn-success btn-lg d-flex justify-content-center">
+                Back to Login
+            </button>
+
+        </div>
+    </form>
+
+    <br>
+
+</div>

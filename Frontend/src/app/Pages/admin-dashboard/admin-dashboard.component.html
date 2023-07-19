@@ -1,0 +1,63 @@
+<!-- title of page-->
+<div class="p-2 text-center bg-light fa-3x">
+    <h1 class="mb-1">Admin Dashboard</h1>
+</div>
+
+<br>
+
+<!-- table of registered vendors -->
+<h3 class="mb-3 text-center">Registered Vendors</h3>
+
+<div class="container d-flex justify-content-center">
+    <table class="table table-responsive" style="width:50%">
+        <thead>
+            <tr>
+                <th style="text-align: center">Vendor Name</th>
+                <th style="text-align: center">Location</th>
+                <th style="text-align: center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vendor of vendorData; let i= index">
+                <td style="text-align: center">{{vendor.vendorName}}</td>
+                <td style="text-align: center">{{vendor.vendorLocation}}</td>
+                <td style="text-align: center">
+                    <button type="button" class="btn btn-danger" (click)="onDeleteVendor(vendor)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+<br>
+<hr/>
+<br>
+
+<div>
+
+    <!-- table of website feedbacks from users -->
+    <h3 class="mb-3 text-center">Website Feedbacks</h3>
+
+    <div class="container d-flex justify-content-center">
+        <table class="table" style="text-align:center; width:40%;">
+            <thead>
+                <tr>
+                    <th scope="col">Ratings</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feedback of feedbackData; let i= index">
+                    <td>{{feedback.rating}}</td>
+                    <td>{{feedback.description}}</td>
+                    <td><button type="button" class="btn btn-danger" (click)="onDeleteFeedback(feedback)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<br>

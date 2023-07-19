@@ -1,0 +1,68 @@
+<!-- Navbar -->
+<!-- Source: https://mdbootstrap.com/docs/angular/navigation/navbar/ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a routerLink="/home">
+        <img
+          src="https://i.pinimg.com/originals/94/ee/2f/94ee2fda4931c26b3c55ed23d28e885e.png"
+          height="40"
+          alt=""
+          loading="lazy"
+          style="margin-top: -1px;"
+        />
+      </a>
+  
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div
+        class="collapse navbar-collapse"
+        id="navbarButtonsExample"
+      >
+
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Food Delivery App</a>
+          </li>
+        </ul>
+        
+        <!-- Left links -->
+        <div class="d-flex align-items-center">
+
+          <a routerLink="/login">
+            <button type="button" class="btn btn-link px-3 me-2">
+              Login
+            </button>
+          </a>
+
+          <a routerLink="/register">
+            <button type="button" class="btn btn-primary me-3">
+              Sign up for free
+            </button>
+          </a>
+
+          <a [routerLink]="['/shopping-cart', id]" *ngIf="isShoppingAuthenticated"> 
+            <button type="button" class="btn btn-dark px-3">
+              <i class="fas fa-shopping-basket"></i>
+              <div style="font-size: 8px;" class="badge bg-danger">{{ItemCount}}</div>
+            </button>
+          </a>
+          
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->

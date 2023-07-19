@@ -1,0 +1,44 @@
+<!--Title for page-->
+<header>
+    <div class="p-2 text-center bg-light">
+        <h1 class="mb-1">Create Offers</h1>
+    </div>
+</header>
+
+<div class="form-group">
+    <!--Create offer form-->
+    <form (ngSubmit)="createOffer()"[formGroup]= "offerForm">
+
+        <label for="discount">Discount</label>
+        <input
+        type="number"
+        formControlName="discount"
+        class="form-control"
+        placeholder="50"
+        />
+
+        <label for="offerDescription">Offer Description</label>
+        <textarea
+            type="text"
+            class="form-control"
+            formControlName="offerDescription"
+            placeholder="50% off your first order"
+        ></textarea>
+
+        <br>
+
+        <!--Create offer or cancel and return to vendor dashboard-->
+        <div class="d-flex justify-content-center">
+            <br>
+                <button type="submit" class="btn btn-success" [disabled]="!offerForm.valid">Submit</button>
+                <a [routerLink] = "['/vendor-dashboard', vendorId]">
+                    <button class="btn btn-danger">Cancel</button>
+                </a>
+            <br>
+        </div>
+
+    </form>
+
+    <hr/>
+
+</div>

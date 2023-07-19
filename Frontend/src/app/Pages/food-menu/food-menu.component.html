@@ -1,0 +1,121 @@
+<!--Vendor information-->
+<header>
+    <div class="p-3 text-center bg-light">
+        <h1 class="mb-1">{{ vendorInfo.vendorName }} Menu</h1>
+        <h4>{{ vendorInfo.vendorLocation }}</h4>
+    </div>
+</header>
+
+<div class="container">
+
+    <!--Food menu table for the vendor-->
+    <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th style="text-align: center"></th>
+                <th style="text-align: center">Food Name</th>
+                <th style="text-align: center">Description</th>
+                <th style="text-align: center">Price</th>
+                <th style="text-align: center">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let food of foodItemList; let i = index">
+                <!--Food Icon-->
+                <td style="text-align: center">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/128/9844/9844852.png"
+                      alt="Food Icon"
+                      width="30"
+                      height="30"
+                    />
+                </td>
+                <td style="text-align: center">{{ food.foodName }}</td>
+                <td style="text-align: center">{{ food.description }}</td>
+                <td style="text-align: center">${{ food.price }}</td>
+                <td style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      (click)="addToCart(food)"
+                    >
+                      Add
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <br>
+
+    <!--Navigation buttons back to user dashboard and towards shopping cart-->
+    <div class="d-flex justify-content-center">
+        <a [routerLink]="['/user-dashboard']">
+            <button class="btn btn-warning">Back to Dashboard</button>
+        </a>
+        
+        <!--Only show if user's cart has item(s) from current vendor food menu page-->
+        <a [routerLink]="['/shopping-cart', vendorId]" *ngIf="isOrderAuthenticated">
+            <button class="btn btn-primary">Go to Cart</button>
+        </a>
+
+        <br>
+        <br>
+        <br>
+
+    </div>
+
+</div>
+
+<!-- 
+
+<header>
+    <div class="p-3 text-center bg-light">
+      <h1 class="mb-1">{{vendorInfo.vendorName}}</h1>
+      <h4>Location: {{vendorInfo.vendorLocation}}</h4>
+    </div>
+</header>
+
+<ng-container>
+    <div class="container">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Food ID</th>
+                    <th scope="col">Food Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Food Price</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let food of fooditem; let i= index">
+                    <th scope = "row">{{i+1}}</th>
+                    <td>{{food.foodName}}</td>
+                    <td>{{food.description}}</td>
+                    <td>{{food.price}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" (click)="addToCart(food)">Add</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        <a routerLink="/user-dashboard">
+            <button class="btn btn-warning">Back to Dashboard</button>
+        </a>
+        <a [routerLink]="['/shopping-cart', id]" *ngIf="isAuthenticated">
+            <button class="btn btn-primary">Go to Cart</button>
+        </a>
+        
+        <button class="btn btn-danger">Back to Dashboard</button>
+        <button class="btn btn-primary" onclick="loginUser()">Go to Cart</button>
+    </div>
+    <br>
+    <br>
+</ng-container> -->

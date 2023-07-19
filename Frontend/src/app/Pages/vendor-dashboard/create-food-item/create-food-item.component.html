@@ -1,0 +1,55 @@
+<!--Title for page-->
+<header>
+    <div class="p-2 text-center bg-light">
+        <h1 class="mb-1">Create Food Item</h1>
+    </div>
+</header>
+
+<!--Create Food Item Form-->
+<div class="form-group">
+    <form (submit)="createFoodItem()" [formGroup]= "foodItemForm">
+
+        <label for="name">Name</label>
+        <input
+            type="text"
+            formControlName="foodName"
+            class="form-control"
+            placeholder="Spaghetti & Meatballs"
+        />
+
+        <label for="price">Price</label>
+        <input
+            type="text"
+            id="price"
+            formControlName="price"
+            class="form-control"
+            placeholder ="15"
+        />
+
+        <label for="description">Description</label>
+        <textarea
+            type="text"
+            class="form-control"
+            formControlName="description"
+            rows="4"
+            placeholder="Made with love. Yummy and ready to eat!"
+        ></textarea>
+
+        <br>
+
+        <!--Submit food item or cancel-->
+        <div class="d-flex justify-content-center">
+
+            <br>
+
+            <button type="submit" class="btn btn-success" [disabled]="!foodItemForm.valid">Submit</button>
+            <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
+
+            <br>
+            
+        </div>
+
+        <hr/>
+    </form>
+
+</div>

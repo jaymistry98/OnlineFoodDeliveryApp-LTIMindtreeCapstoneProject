@@ -1,0 +1,100 @@
+<div class="container">
+
+    <!--If cart empty, show generic Shopping Cart Page, else show Vendor Data-->
+        <header>
+            <div class="p-3 text-center bg-light" *ngIf="!isShoppingAuthenticated">
+                <h1 class="mb-1">Shopping Cart</h1>
+            </div>
+            <div class="p-3 text-center bg-light" *ngIf="isShoppingAuthenticated">
+                <h1 class="mb-1">{{vendorData.vendorName}}</h1>
+                <h4>{{vendorData.vendorLocation}}</h4>
+            </div>
+        </header>
+
+    <br>
+
+    <!--Show list of food ordered-->
+    <h3 class="mb-3 text-center">Food ordered</h3>
+    <div class="container">
+        <table class="table table-responsive" style="text-align:center;">
+
+            <thead>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let foodItem of productList;let i= index">
+                    <td>
+                        {{foodItem.foodName}}
+                    </td>
+                    <td>
+                        {{foodItem.description}}
+                    </td>
+                    <td>
+                        ${{foodItem.price}}
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" (click)="removeItem(foodItem)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-danger" (click)="removeAll()">Remove All Items</button>
+        </div>
+
+        <br>
+        <br>
+
+        <h3 class="mb-3 text-center">Subtotal: ${{subTotal}}</h3>
+
+        <br>
+        <hr/>
+        <br>
+
+        <h3 class="mb-3 text-center">Available Offers (% off)</h3>
+
+        <!--Select an offer-->
+        <div class="d-flex justify-content-center">
+            <select [(ngModel)]="discount" style="width:25%; height:40px;">
+                <option *ngFor="let offer of offers" [ngValue]="offer">
+                {{offer.discount}}% - {{offer.offerDescription}}
+                </option>
+            </select>
+        </div>
+
+        <br>
+        <br>
+
+        <!--If cart is empty, only show "Back to Dashboard" button-->
+        <!--Else user can return to Vendor Food Menu or Submit their order-->
+        <div class ="d-flex justify-content-center">
+            <a [routerLink]="['/user-dashboard']" *ngIf="!isShoppingAuthenticated">
+                <button type="button" class="btn btn-primary">Back to Dashboard</button>
+            </a>
+            <a [routerLink]="['/food-menu', vendorId]" *ngIf="isShoppingAuthenticated">
+                <button type="button" class="btn btn-primary">Back to Menu</button>
+            </a>
+            <a *ngIf="isShoppingAuthenticated">
+                <button type="button" class="btn btn-success" (click)="confirmOrder()">Submit Order</button>
+            </a>  
+        </div>
+
+          <br>
+          <br>
+
+    </div>
+
+</div>
+              

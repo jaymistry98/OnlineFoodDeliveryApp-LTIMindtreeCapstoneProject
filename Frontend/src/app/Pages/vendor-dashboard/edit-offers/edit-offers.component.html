@@ -1,0 +1,43 @@
+<!--Title for page-->
+<header>
+    <div class="p-2 text-center bg-light">
+        <h1 class="mb-1">Edit Offers </h1>
+    </div>
+</header>
+
+<div class="form-group">
+    <!--Update Offer Form-->
+    <form (submit)="updateOffer()" [formGroup]= "offerForm">
+        <label for="discount">Discount %</label>
+        <input
+        type="text"
+        formControlName="discount"
+        class="form-control"
+        placeholder={{offerData.discount}}
+        />
+
+        <label for="offerDescription">Description</label>
+        <textarea
+        type="text"
+        class="form-control"
+        formControlName="offerDescription"
+        placeholder={{offerData.offerDescription}}
+        ></textarea>
+          
+        <br>
+
+        <!--Submit Edit to Offer or cancel and return to Vendor Dashboard-->
+        <div class="d-flex justify-content-center">
+
+            <br>
+
+            <button type="submit" class="btn btn-success" [disabled]="!offerForm.valid">Submit</button>
+            <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
+           
+            <br>
+
+        </div>
+          
+    </form>
+    <hr/>
+</div>

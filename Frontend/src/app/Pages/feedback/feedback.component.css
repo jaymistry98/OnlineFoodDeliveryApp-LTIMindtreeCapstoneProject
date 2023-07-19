@@ -1,0 +1,14 @@
+.overlay {
+  background-color: green;
+}
+form {
+  background-color: #ffffff;
+}
+input,
+textarea {
+  width: 100%;
+}
+
+.form-outline {
+  border-radius: 12px;
+}

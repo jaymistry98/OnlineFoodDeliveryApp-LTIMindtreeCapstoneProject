@@ -1,0 +1,71 @@
+<div class="container">
+
+    <!--Title of page-->
+    <div class="p-2 text-center bg-light fa-3x">
+        <i class="fas fa-user-circle"></i>
+        <h1 class="mb-1">Login</h1>
+    </div>
+
+    <!--Login form-->
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="form-group">
+          
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Username"
+              formControlName="userName"
+            />
+
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Enter Password"
+              formControlName="password"
+            />
+
+            <!--Error shown for invalid password input-->
+            <div *ngIf="loginForm.controls['password'].invalid">
+                <p align="right">Password must be length of 6 or more</p>
+            </div>
+
+            <br>
+            <!--Submit login-->
+            <a style="width: 100%"
+            class="d-flex justify-content-center">
+            <button
+              class="btn btn-success d-flex justify-content-center"
+              style="width: 100%"
+              [disabled]="!loginForm.valid"
+              type="submit"
+            >
+              Login
+            </button>
+            </a>
+
+            <!--or route to Register-->
+            <a
+              style="width: 100%"
+              class="d-flex justify-content-center"
+              routerLink="/register"
+            >
+                <button class="btn btn-primary">Register</button>
+            </a>
+            
+            <!--or route to forgot password page-->
+            <a
+              style="width: 100%"
+              class="d-flex justify-content-center"
+              routerLink="/forgot-password"
+            >
+                <button class="btn btn-warning">Forgot Password?</button>
+            </a>
+
+        </div>
+    </form>
+
+    <br>
+
+</div>

@@ -1,0 +1,19 @@
+.container {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 3%;
+}
+
+a {
+  text-align: center;
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+}
+
+.page-header {
+  padding: 5%;
+}

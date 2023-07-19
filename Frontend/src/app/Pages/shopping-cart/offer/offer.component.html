@@ -1,0 +1,28 @@
+<div className='container'>
+    <div>
+        <h4 class="mb-3 text-center">Available Offers</h4>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Offer ID</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Offer Description</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let offer of offerData; let i= index">
+                        <th scope = "row">{{i+1}}</th>
+                        <td>{{offer.discount}}</td>
+                        <td>{{offer.offerDecription}}</td>
+                        <td>
+                            <!-- <button type="button" class="btn btn-info">View</button> -->
+                            <!-- <button type="button" class="btn btn-success">Enable</button> -->
+                            <button type="button" class="btn btn-danger">Apply Offer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

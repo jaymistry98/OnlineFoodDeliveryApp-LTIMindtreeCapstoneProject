@@ -1,0 +1,9 @@
+button {
+    margin: 5px;
+}
+    
+.form-group {
+    margin: 5px auto;
+    width: 52%;
+    padding: 10px;
+}

@@ -1,0 +1,106 @@
+<!--Vendor information for page-->
+<header>
+  <div class="p-2 text-center bg-light fa-3x">
+    <h1 class="mb-1">{{vendorInfo.vendorName}} Menu</h1>
+    <h4>{{vendorInfo.vendorLocation}}</h4>
+  </div>
+</header>
+
+<br>
+
+<!--Food Item Table-->
+<h3 class="mb-3 text-center">Available Items</h3>
+
+<div class="container">
+    <div class="food-table">
+        <div class="food-items">
+            <table class="table table-responsive">
+
+                <thead>
+                    <tr>
+                      <th style="text-align: center"></th>
+                      <th style="text-align: center">Food Name</th>
+                      <th style="text-align: center">Price</th>
+                      <th style="text-align: center">Description</th>
+                      <th style="text-align: center">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let foodItem of foodItemData;let i= index">
+                        <!-- Food Item Image Icon -->
+                        <td style="text-align: center"><img src="https://cdn-icons-png.flaticon.com/128/9844/9844852.png" alt="Food Icon" width="30" height="30"></td>
+                        <td style="text-align: center">{{foodItem.foodName}}</td>
+                        <td style="text-align: center">${{foodItem.price}}</td>
+                        <td style="text-align: center">{{foodItem.description}}</td>
+                        <td style="text-align: center">
+                          <button [routerLink]="['/edit-food-item', foodItem.foodId, foodItem.vendorId]" class="btn btn-primary" ><i class="fa-solid fa-pen-to-square"></i></button>
+                          <button (click)="deleteFoodItem(foodItem)" class="btn btn-danger">
+                              <i class="fas fa-trash-alt"></i>
+                          </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<!--Navigation to Create Food Item Page-->
+<div class="text-center">
+    <a [routerLink]="['/create-food-item', vendorId]">
+        <button class="btn btn-success">Create Food Item</button>
+    </a>
+</div>
+
+<br>
+<br>
+<hr/>
+<br>
+
+<!--Header for Offers -->
+<h3 class="mb-3 text-center">Offers</h3>
+
+<!--Table for Offers-->
+<div class="container d-flex justify-content-center">
+    <div class="offer-table">
+        <div class="offer-items">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th style="text-align: center"></th>
+                        <th style="text-align: center">Discount</th>
+                        <th style="text-align: center">Offer Description</th>
+                        <th style="text-align: center">Action</th>
+                    </tr>
+                </thead>
+              <tbody>
+                    <tr *ngFor="let offer of offerData; let i= index">
+                      <!--Offer Image Icon-->
+                      <td style="text-align: center"><img src="https://cdn-icons-png.flaticon.com/128/879/879859.png" alt="Food Icon" width="20" height="20"></td>
+                      <td style="text-align: center">{{offer.discount}}</td>
+                      <td style="text-align: center">{{offer.offerDescription}}</td>
+                      <td style="text-align: center">
+                          <button [routerLink]= "['/edit-offers', offer.offerId, vendorId]" type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+                          <button (click)="deleteOffer(offer)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<!--Route the Vendor to the Create Offers Page-->
+<div class = "text-center">
+  <a [routerLink]="['/create-offers', vendorId]">
+      <button class="btn btn-success">Create Offer</button>
+  </a>
+</div>
+
+<br>
+<br>

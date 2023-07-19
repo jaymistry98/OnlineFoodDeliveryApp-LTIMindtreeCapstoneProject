@@ -1,0 +1,25 @@
+.form-group {
+    margin: 5px auto;
+    width: 52%;
+    padding: 5px;
+  }
+  
+  select,
+  input {
+    margin: 0px;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  label {
+    margin: 0px;
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .btn {
+    margin: 0px;
+    width: 100%;
+    padding: 10px;
+  }
+  

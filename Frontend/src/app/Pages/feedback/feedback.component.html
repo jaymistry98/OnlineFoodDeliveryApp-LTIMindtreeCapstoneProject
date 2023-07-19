@@ -1,0 +1,52 @@
+<div class="container">
+
+    <!-- Title of page --->
+    <div class="overlay">
+        <header>
+            <div class="p-2 text-center bg-light">
+                <h1 class="mb-1">Website Feedback</h1>
+            </div>
+        </header>
+    </div>
+
+    <!-- form to submit feedback -->
+    <div class="text-center form-group">
+        <form (submit)="createFeedback()" [formGroup]="feedbackForm">
+
+          <br>
+          
+          <!-- rating input -->
+          <h6>Rating (1-5):</h6>
+          <input 
+            formControlName="rating"
+            type="number"
+            style="width: 500px;"
+          />
+
+          <br>
+          <br>
+
+          <!-- feedback input -->
+          <h6>Feedback Description:</h6>
+          <textarea
+            formControlName="description"
+            type="text"
+            style="height: 100px;width:500px"
+            rows="6"
+          ></textarea>
+
+          <br>
+          <br>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-success" [disabled]="!feedbackForm.valid">Submit Feedback</button>
+          </div>
+
+        </form>
+        <br>
+        <br>
+    </div>
+
+</div>
+
+  

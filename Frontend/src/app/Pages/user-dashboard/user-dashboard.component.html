@@ -1,0 +1,77 @@
+<!--Title for page-->
+<header>
+    <div class="p-3 text-center bg-light">
+        <h1 class="mb-1">User Dashboard</h1>
+    </div>
+</header>
+
+<div class="container">
+    
+    <!--List of Vendors-->
+    <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th style="text-align: center"></th>
+                <th style="text-align: center">Vendor Name</th>
+                <th style="text-align: center">Vendor Location</th>
+                <th style="text-align: center">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let vendor of vendorList; let i= index">
+                <!--Vendor Image Icon-->
+                <td style="text-align: center"><img src="https://static.thenounproject.com/png/1478906-200.png" alt="Vendor Icon" width="30" height="30"></td>
+                <td style="text-align: center">{{vendor.vendorName}}</td>
+                <td style="text-align: center">{{vendor.vendorLocation}}</td>
+                <td style="text-align: center">
+                    <a [routerLink] = "['/food-menu', vendor.vendorId]">
+                        <button class="btn btn-primary">
+                            View
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <br>
+    
+</div>
+
+<!--
+<header>
+    <div class="p-3 text-center bg-light">
+      <h1 class="mb-1">User Dashboard</h1>
+    </div>
+</header>
+
+<ng-container>
+    <div class="container">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Vendor Name</th>
+                    <th>Vendor Location</th>
+                    <th>Vendor Page</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vendor of vendorList">
+                    <td>{{vendor.vendorName}}</td>
+                    <td>{{vendor.vendorLocation}}</td>
+                    <td>
+                        <a [routerLink] = "['/food-menu', vendor.vendorId]">
+                            <button class="btn btn-primary">
+                                View
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
+-->
